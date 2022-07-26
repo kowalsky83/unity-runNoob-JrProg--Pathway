@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
 
+    [SerializeField] private Transform groundCheckPoint, groundCheckPoint2;
+
     // Movement
     [SerializeField] private float jumpSpeed = 15.0f;
     private float gravity = 1.0f;
