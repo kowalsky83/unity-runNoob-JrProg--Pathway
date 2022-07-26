@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
 
     [SerializeField] private Transform groundCheckPoint, groundCheckPoint2;
+    private float checkRadius = 0.27f;
 
     // Movement
     [SerializeField] private float jumpSpeed = 15.0f;
@@ -29,7 +30,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics2D.Raycast(transform.position, Vector2.down, groundLength, groundLayer);
+        isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, checkRadius, groundLayer) || Physics2D.OverlapCircle(groundCheckPoint2.position, checkRadius, groundLayer);
         if(Input.GetButtonDown("Jump") && isGrounded){
             Jump();
         }
@@ -64,6 +65,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnDrawGizmos() {
         Gizmos.color = Color.blue;
-        Gizmos.DrawLine(transform.position, transform.position + Vector3.down * groundLength);
+        Gizmos.DrawLine(groundCheckPoint.position, groundCheckPoint.position + Vector3.down * checkRadius);
+        Gizmos.DrawLine(groundCheckPoint2.position, groundCheckPoint2.position + Vector3.down * checkRadius);
     }
 }
