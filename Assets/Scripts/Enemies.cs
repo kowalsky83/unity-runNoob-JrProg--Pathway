@@ -17,7 +17,7 @@ protected virtual void Start() {
 }
 
 protected virtual void Update() {
-    Move(dir);
+    Move(dir); //ABSTRACTION
 }
 
 private void Move(int dir){
@@ -41,7 +41,7 @@ public class Enemy {
     set{ 
         _runSpeed = value;
         if(_runSpeed < 1){
-            _runSpeed = Random.Range(0,8);;
+            _runSpeed = Random.Range(1,8);;
         }
         }
     }

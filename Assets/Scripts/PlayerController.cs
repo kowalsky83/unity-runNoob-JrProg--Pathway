@@ -32,12 +32,12 @@ public class PlayerController : MonoBehaviour
     {
         isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, checkRadius, groundLayer) || Physics2D.OverlapCircle(groundCheckPoint2.position, checkRadius, groundLayer);
         if(Input.GetButtonDown("Jump") && isGrounded){
-            Jump();
+            Jump(); // ABSTRACTION
         }
     }
 
     void FixedUpdate() {
-        ModifyPhysics();
+        ModifyPhysics(); // ABSTRACTION
     }
 
     void Jump(){
