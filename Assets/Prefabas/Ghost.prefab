@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 1520004787885010752}
   - component: {fileID: 1520004787885010753}
   - component: {fileID: 2378596787162081074}
-  - component: {fileID: 5457764202172153558}
+  - component: {fileID: 7904078745732985852}
+  - component: {fileID: 4093524907674663316}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Untagged
@@ -120,7 +121,28 @@ CircleCollider2D:
   m_Offset: {x: -0.05, y: -0.09}
   serializedVersion: 2
   m_Radius: 0.75
---- !u!114 &5457764202172153558
+--- !u!50 &7904078745732985852
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1520004787885010754}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &4093524907674663316
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,4 +154,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1abfd5fc7b17c914ca194467f65d013e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 12
+  <Obj>k__BackingField: 1
