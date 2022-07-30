@@ -371,7 +371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8061196444050166451, guid: fed9efe177566db45947874ba6c6466d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8061196444050166451, guid: fed9efe177566db45947874ba6c6466d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -575,11 +575,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundCheckPoint: {fileID: 2131083373}
   groundCheckPoint2: {fileID: 64544500}
-  jumpSpeed: 15
-  groundLayer:
+  whatIsGround:
     serializedVersion: 2
     m_Bits: 64
-  groundLength: 1.1
+  hangTime: 0.2
+  jumpBufferLength: 0.1
 --- !u!1 &1404187545
 GameObject:
   m_ObjectHideFlags: 0
