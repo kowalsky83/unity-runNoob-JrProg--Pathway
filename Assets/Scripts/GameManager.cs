@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI endTime;
     [SerializeField] private GameObject endGameUi;
     public bool isInProgress = true;
+    private float minutes;
+    private float seconds;
     void Start()
     {
         
@@ -18,19 +20,20 @@ public class GameManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        calcTime();
+    {       
         if(!isInProgress) {
             endGameUi.SetActive(true);
-            endTime.text = "Your time is " + timmerTxt.text;
+            endTime.text = "Your time is " + string.Format("{0:00}:{1:00}", minutes,seconds);
+        }else{
+            calcTime();
         }
     }
 
     private void calcTime(){
         myTime += Time.deltaTime;
-        float min = Mathf.FloorToInt(myTime/60);
-        float sec = Mathf.FloorToInt(myTime%60);
-        timmerTxt.text = string.Format("{0:00}:{1:00}",min,sec);
+        minutes = Mathf.FloorToInt(myTime/60);
+        seconds = Mathf.FloorToInt(myTime%60);
+        timmerTxt.text = string.Format("{0:00}:{1:00}", minutes,seconds);
     }
 
     public void BackToTitle(){

@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
 
     //Animacion y render
     private Animator anim;
+    private SpriteRenderer sRender;
+    [SerializeField] ParticleSystem blood;
 
     //Jump Control
     [SerializeField] private Transform groundCheckPoint, groundCheckPoint2;
@@ -23,18 +25,30 @@ public class PlayerController : MonoBehaviour
     private float jumpBufferCount;
     private float gravity = 1;
     private float fallMultiplier = 5.0f;//2.5f;
+    
+    private int life = 3;
+
+
+
+    private GameManager gameManager;
 
     private void Start() {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        sRender = GetComponent<SpriteRenderer>();
     }
 
     private void Update() {
+
+        if(life==0) gameManager.isInProgress = false;
+
         isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, checkRadius, whatIsGround) || Physics2D.OverlapCircle(groundCheckPoint2.position, checkRadius, whatIsGround);
         
         manageHangTime(isGrounded);
         manageJumpBuffer();
         jump();
+
     }
 
     private void manageHangTime(bool isGrounded){
@@ -87,6 +101,14 @@ public class PlayerController : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(groundCheckPoint.position, groundCheckPoint.position + Vector3.down * checkRadius);
         Gizmos.DrawLine(groundCheckPoint2.position, groundCheckPoint2.position + Vector3.down * checkRadius);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.gameObject.tag == "loseAllLife"){
+            life = 0;
+            sRender.enabled = false;
+            blood.Play();
+        }
     }
 
 }
