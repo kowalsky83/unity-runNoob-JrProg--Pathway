@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
             endGameUi.SetActive(true);
             endTime.text = "Your time is " + string.Format("{0:00}:{1:00}", minutes,seconds);
         }else{
-            calcTime();
+            calcTime(); //ABSTRACTION
         }
     }
 

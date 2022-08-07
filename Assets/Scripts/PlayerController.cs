@@ -45,9 +45,9 @@ public class PlayerController : MonoBehaviour
 
         isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, checkRadius, whatIsGround) || Physics2D.OverlapCircle(groundCheckPoint2.position, checkRadius, whatIsGround);
         
-        manageHangTime(isGrounded);
-        manageJumpBuffer();
-        jump();
+        manageHangTime(isGrounded); //ABSTRACTION
+        manageJumpBuffer();  //ABSTRACTION
+        jump(); //ABSTRACTION
 
     }
 
